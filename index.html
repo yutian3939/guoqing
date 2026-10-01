@@ -10,6 +10,24 @@
 <link rel="apple-touch-icon" href="favicon-180.png">
 <meta name="theme-color" content="#f6f6f7">
 <!--
+  Cloudflare Web Analytics（免费、无 Cookie）：
+  1) 打开 https://dash.cloudflare.com/ → 左侧 Analytics & Logs → Web Analytics
+  2) Add a site → hostname 填 yutian3939.github.io → 选 “JS snippet” 安装方式
+  3) 把下面 CF_ANALYTICS_TOKEN 换成它给的 token（32 位十六进制），保存并推上线即可
+  留空 = 完全不加载、不产生任何请求。
+-->
+<script>
+(function () {
+  var CF_ANALYTICS_TOKEN = '';   // ← 把 token 粘到这里
+  if (!/^[0-9a-f]{32}$/i.test(CF_ANALYTICS_TOKEN)) return;
+  var s = document.createElement('script');
+  s.defer = true;
+  s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+  s.setAttribute('data-cf-beacon', JSON.stringify({ token: CF_ANALYTICS_TOKEN }));
+  document.head.appendChild(s);
+})();
+</script>
+<!--
   空白页，随便写。把下面 <body> 里换成你的内容就行。
 
   本地预览：node server.js 8123         → 打开 http://localhost:8123
